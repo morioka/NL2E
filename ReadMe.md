@@ -30,7 +30,7 @@ $ unzip -x tutorial_data_3x.zip -d khcoder/
 
 ```
 $ xhost +local:docker
-$ docker-compose up
+$ docker compose up --build
 ```
 
 xeyesの目玉が表示され、「/usr/sbin/mysqld: ready for connections. Version...」の表示が出れば成功。以降の作業は別ターミナルで。
@@ -47,14 +47,17 @@ MySQLの設定後、KH Coderが起動する。起動したら[チュートリア
 
 ```
 $ cd NL2E
-$ docker-compose up -d                  # dockerコンテナ起動
-$ docker-compose ps                     # dockerコンテナ起動確認（任意）
-$ docker exec -it nl2e_nl2e_1 /bin/bash # dockerに入る
+$ docker compose up -d                  # dockerコンテナ起動
+$ docker compose ps                     # dockerコンテナ起動確認（任意）
+$ docker exec -it nl2e-nl2e-1 /bin/bash # dockerに入る
 # cd /khcoder                   # KH Coderのフォルダに移動して
 # perl kh_coder.pl                      # KH Coder起動
 # exit                                  # dockerから出る
 $ docker-compose down                   # dockerコンテナ終了
 ```
+
+
+## WSL/Ubuntu22.04の場合
 
 ## macOSの場合
 
