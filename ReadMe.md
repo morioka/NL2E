@@ -23,7 +23,7 @@ $ git submodule update --remote
 
 ```
 $ wget https://khcoder.net/tutorial_data_3x.zip
-$ unzip -x tutorial_data_3x.zip -d KHCoder/khcoder/
+$ unzip -x tutorial_data_3x.zip -d khcoder/
 ```
 
 ## 起動と設定
@@ -50,7 +50,7 @@ $ cd NL2E
 $ docker-compose up -d                  # dockerコンテナ起動
 $ docker-compose ps                     # dockerコンテナ起動確認（任意）
 $ docker exec -it nl2e_nl2e_1 /bin/bash # dockerに入る
-# cd /KHCoder/khcoder                   # KH Coderのフォルダに移動して
+# cd /khcoder                   # KH Coderのフォルダに移動して
 # perl kh_coder.pl                      # KH Coder起動
 # exit                                  # dockerから出る
 $ docker-compose down                   # dockerコンテナ終了

@@ -1,17 +1,30 @@
 version: '3.5'
 services:
   nl2e:
-    image: 'sinby/nl2e:v0.1'
+    #image: 'sinby/nl2e:v0.1'
+    build:
+      context: Docker/nl2e
+      dockerfile: Dockerfile
     environment:
-        DISPLAY: $DISPLAY
+      - DISPLAY=$DISPLAY
+      - PULSE_SERVER=$PULSE_SERVER
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
     depends_on:
         - mysql
     volumes:
-      - './KHCoder:/KHCoder'
+      - './khcoder:/khcoder'
       - '$HOME/.Xauthority:/root/.Xauthority'
+      - /mnt/wslg:/mnt/wslg
+      - /tmp/.X11-unix:/tmp/.X11-unix
     network_mode: "host"
   mysql:
-    image: 'sinby/mysql-for-khcoder:8.0.27'
+    #image: 'sinby/mysql-for-khcoder:8.0.27'
+    #build:
+    #  context: Docker/mysql
+    #  dockerfile: Dockerfile
+    platform: linux/amd64
+    image: mysql:8.0.27
     cap_add:
       - SYS_NICE
     environment:
@@ -20,7 +33,8 @@ services:
       - '13306:3306'
     volumes:
       - ./db_data:/var/lib/mysql
+      - ./Docker/mysql/khcoder.cnf:/etc/mysql/conf.d/my.cnf
 
 volumes:
-    KHCoder:
+    khcoder:
     db_data:

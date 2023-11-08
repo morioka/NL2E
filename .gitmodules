@@ -1,3 +1,3 @@
-[submodule "KHCoder/khcoder"]
-	path = KHCoder/khcoder
-	url = https://github.com/ko-ichi-h/khcoder
+[submodule "khcoder"]
+	path = khcoder
+	url = https://github.com/ko-ichi-h/khcoder.git

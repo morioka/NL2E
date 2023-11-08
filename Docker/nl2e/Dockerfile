@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 ENV DEBCONF_NOWARNINGS=yes
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -30,6 +30,7 @@ RUN apt-get install -y x11-apps \
       libextutils-helpers-perl         \
       libextutils-installpaths-perl    \
       libfile-bom-perl                 \
+      libfile-copy-recursive-perl      \
       libgraphics-colorutils-perl      \
       libgsl-dev                       \
       libjcode-perl                    \
@@ -57,6 +58,7 @@ RUN apt-get install -y x11-apps \
       r-cran-dichromat                 \
       r-cran-foreign                   \
       r-cran-ggdendro                  \
+      r-cran-ggplot2                   \
       r-cran-ggsci                     \
       r-cran-gtable                    \
       r-cran-igraph                    \
@@ -99,7 +101,8 @@ RUN cpanm Lingua::JA::Regular::Unicode Statistics::ChisqIndep
 RUN Rscript -e 'install.packages(c("ggnetwork", "som", "topicmodels"))'
 
 RUN cpanm DOY/Spreadsheet-ParseXLSX-0.17.tar.gz
-RUN Rscript -e 'install.packages("http://cran.r-project.org/src/contrib/Archive/ggplot2/ggplot2_2.2.1.tar.gz", repos=NULL, type="source")'
+
+RUN cpanm File::Copy::Recursive
 
 COPY entrypoint.sh /
 

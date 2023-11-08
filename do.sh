@@ -1,8 +1,8 @@
 #!/bin/sh
 CWD=`pwd`
 DIR_NAME=`basename $CWD | tr A-Z a-z`
-DOCKER_ID=${DIR_NAME}_mysql_1
-NL2E_DOCKER_ID=${DIR_NAME}_nl2e_1
+DOCKER_ID=${DIR_NAME}-mysql-1
+NL2E_DOCKER_ID=${DIR_NAME}-nl2e-1
 IP_ADDR=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DOCKER_ID`
 
 cat << JGEIL > do_init.sh
@@ -14,12 +14,12 @@ if [ -e mysql.txt ]; then
     mysql --host $IP_ADDR -u root -pkhcoder < mysql.txt
     rm mysql.txt
 fi
-cd /KHCoder/khcoder
+cd /khcoder
 /usr/bin/perl ./kh_coder.pl
 JGEIL
 
 chmod +x do_init.sh
-docker cp coder.ini $NL2E_DOCKER_ID:/KHCoder/khcoder/config/
+docker cp coder.ini $NL2E_DOCKER_ID:/khcoder/config/
 docker cp do_init.sh $NL2E_DOCKER_ID:/
 docker cp mysql.txt $NL2E_DOCKER_ID:/
 docker exec -it $NL2E_DOCKER_ID /bin/bash /do_init.sh
