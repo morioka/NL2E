@@ -64,6 +64,10 @@ $ docker compose down                   # dockerコンテナ終了
   - メニューが本来とは全く別のところに出現する。そこにマウスカーソルを合わせても選択できない。
   - xeyesの動きから考えると、出現したメニューにカーソルを動かすと、本来表示されるはずの位置をxeyesは向いている。表示とカーソルの位置があっていない。これは何の問題か。Windows Terminal, MobaXtermどちらでもにたようなもの。
 
+
+- おそらくPerl/Tkに対するWSLg側の問題のようだ。
+  - [Perl/Tk menus show up in strange places and do not work · Issue #961 · microsoft/wslg](https://github.com/microsoft/wslg/issues/961) (2023-01-23) 2023-11-22 現在でopenのまま。
+
 ## macOSの場合
 
 - [XQuartz](https://www.xquartz.org/)をインストールする
