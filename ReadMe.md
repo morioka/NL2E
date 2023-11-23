@@ -59,6 +59,8 @@ $ docker compose down                   # dockerコンテナ終了
 
 ## WSL/Ubuntu22.04の場合 (期待どおりには動作しない)
 
+WSLで動かすことを試みた。macOSの場合を参考に、各フォークの修正を適用してみたがGUIが期待どおりにに動作しない重大な問題を解決できていない。状況は以下のとおり。
+
 - DISPLAY変数の設定は、WSL2の場合と MobaXterm経由の場合とでは異なるようだ。よくわからない。
 - KHCoderが起動するものの、メニュー操作が全く機能しない。Tkの問題? ubuntu22.04からubuntu20.04にダウンさせてみる。
   - メニューが本来とは全く別のところに出現する。そこにマウスカーソルを合わせても選択できない。
@@ -66,7 +68,7 @@ $ docker compose down                   # dockerコンテナ終了
 
 
 - おそらくPerl/Tkに対するWSLg側の問題のようだ。WSLgを使わない環境であれば動作するかもしれない。
-  - [Perl/Tk menus show up in strange places and do not work · Issue #961 · microsoft/wslg](https://github.com/microsoft/wslg/issues/961) (2023-01-23) 2023-11-22 現在でopenのまま。対処不能。
+  - [Perl/Tk menus show up in strange places and do not work · Issue #961 · microsoft/wslg](https://github.com/microsoft/wslg/issues/961) (2023-01-23) 2023-11-22 現在でopenのまま。WSLgかTkで対処する必要があるだろうが、手を出せない。
 
 ## macOSの場合
 
