@@ -57,7 +57,7 @@ $ docker compose down                   # dockerコンテナ終了
 ```
 
 
-## WSL/Ubuntu22.04の場合
+## WSL/Ubuntu22.04の場合 (期待どおりには動作しない)
 
 - DISPLAY変数の設定は、WSL2の場合と MobaXterm経由の場合とでは異なるようだ。よくわからない。
 - KHCoderが起動するものの、メニュー操作が全く機能しない。Tkの問題? ubuntu22.04からubuntu20.04にダウンさせてみる。
@@ -65,8 +65,8 @@ $ docker compose down                   # dockerコンテナ終了
   - xeyesの動きから考えると、出現したメニューにカーソルを動かすと、本来表示されるはずの位置をxeyesは向いている。表示とカーソルの位置があっていない。これは何の問題か。Windows Terminal, MobaXtermどちらでもにたようなもの。
 
 
-- おそらくPerl/Tkに対するWSLg側の問題のようだ。
-  - [Perl/Tk menus show up in strange places and do not work · Issue #961 · microsoft/wslg](https://github.com/microsoft/wslg/issues/961) (2023-01-23) 2023-11-22 現在でopenのまま。
+- おそらくPerl/Tkに対するWSLg側の問題のようだ。WSLgを使わない環境であれば動作するかもしれない。
+  - [Perl/Tk menus show up in strange places and do not work · Issue #961 · microsoft/wslg](https://github.com/microsoft/wslg/issues/961) (2023-01-23) 2023-11-22 現在でopenのまま。対処不能。
 
 ## macOSの場合
 
